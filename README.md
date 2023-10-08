@@ -2,7 +2,7 @@
 ### SOEN342 Project Specification Fall 2023
 
 ## Team Members and Roles
-* **Fadoua Doghmane**
+* **Fadoua Doghmane (Team Leader)**
   * GitHub Username:dogmen6
   * ID:40198495
   * Email:doghmanefadoua@gmail.com
