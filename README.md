@@ -12,7 +12,7 @@
   * GitHub Username:ihanaaa
   * ID:40209686
   * Email:ihanafahmy@gmail.com
-  * Course Section:
+  * Course Section: II
     
 * **Tanya So Tin Yan**
   * GitHub Username:Tanya-STY
