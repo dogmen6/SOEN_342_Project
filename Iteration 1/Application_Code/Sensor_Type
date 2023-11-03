@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Sensor_Type {
+	private int sensorTypeId;
+    private List<Deployed_Sensor> deployedSensors = new ArrayList<>();
+
+    public Sensor_Type(int sensorTypeId) {
+        this.setSensorTypeId(sensorTypeId);
+    }
+
+    public void addDeployedSensor(Deployed_Sensor deployedSensor) {
+        deployedSensors.add(deployedSensor);
+    }
+
+    public List<Deployed_Sensor> getDeployedSensors() {
+        return deployedSensors;
+    }
+
+	public int getSensorTypeId() {
+		return sensorTypeId;
+	}
+
+	public void setSensorTypeId(int sensorTypeId) {
+		this.sensorTypeId = sensorTypeId;
+	}
+}
