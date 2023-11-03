@@ -1,0 +1,92 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        TempMonitor tempMonitor = new TempMonitor();
+
+        while (true) {
+            System.out.println("Temperature Monitoring System");
+            System.out.println("1. Add Sensor Type");
+            System.out.println("2. Add Deployed Sensor");
+            System.out.println("3. Send Message to Sensor");
+            System.out.println("4. Get Temperature of Location");
+            System.out.println("5. Get Location of Temperature");
+            System.out.println("6. Exit");
+            System.out.print("Select an option: ");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter Sensor Type ID: ");
+                    int sensorTypeId = scanner.nextInt();
+                    Sensor_Type sensorType = new Sensor_Type(sensorTypeId);
+                    tempMonitor.addSensor(sensorType);
+                    System.out.println("Sensor Type added.");
+                    break;
+
+                case 2:
+                    System.out.print("Enter Sensor ID: ");
+                    int sensorId = scanner.nextInt();
+                    System.out.print("Enter Location ID: ");
+                    int locationId = scanner.nextInt();
+                    System.out.print("Enter Temperature ID: ");
+                    int temperatureId = scanner.nextInt();
+                    System.out.print("Enter Sensor Type ID: ");
+                    int sensorTypeId1 = scanner.nextInt();
+
+                    Location_Type location = new Location_Type(locationId, "Location " + locationId);
+                    Temperature_Type temperature = new Temperature_Type(temperatureId, 25.0); // Change the temperature value as needed
+                    Deployed_Sensor deployedSensor = new Deployed_Sensor(sensorId, location, temperature);
+
+                    // Associate the deployed sensor with a specific sensor type
+                    tempMonitor.addDeployedSensor(deployedSensor, sensorTypeId1);
+
+                    System.out.println("Deployed Sensor added.");
+                    break;
+
+                case 3:
+                    System.out.print("Enter Sensor ID: ");
+                    int sensorIdToMessage = scanner.nextInt();
+                    System.out.print("Enter Message Content: ");
+                    scanner.nextLine(); // Consume the newline character
+                    String messageContent = scanner.nextLine();
+                    Message message = new Message(messageContent);
+
+                    // Implement sending a message to the specified sensor
+                    // You can add the necessary logic here
+
+                    System.out.println("Message sent to Sensor.");
+                    break;
+
+                case 4:
+                    System.out.print("Enter Location ID: ");
+                    int locationIdToGetTemp = scanner.nextInt();
+                    double temperature1 = tempMonitor.getTemperatureOfLocation(locationIdToGetTemp);
+                    System.out.println("Temperature at Location " + locationIdToGetTemp + ": " + temperature1);
+                    break;
+
+                case 5:
+                    System.out.print("Enter Temperature ID: ");
+                    int temperatureIdToGetLocation = scanner.nextInt();
+                    var locations = tempMonitor.getLocationsOfTemperature(temperatureIdToGetLocation);
+                    if (locations.isEmpty()) {
+                        System.out.println("No locations found for Temperature " + temperatureIdToGetLocation);
+                    } else {
+                        System.out.println("Locations for Temperature " + temperatureIdToGetLocation + ": " + locations);
+                    }
+                    break;
+
+                case 6:
+                    System.out.println("Exiting Temperature Monitoring System.");
+                    scanner.close();
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid choice. Please select a valid option.");
+            }
+        }
+    }
+}
