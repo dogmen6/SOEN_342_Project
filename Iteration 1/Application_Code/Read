@@ -1,0 +1,20 @@
+public class Read {
+    private Read_Items readItems;
+
+    public Read() {
+        this.readItems = new Read_Items();
+    }
+
+    public void add(Sensor_Type sensor, Temperature_Type temperature) {
+        readItems.addPair(sensor, temperature);
+    }
+
+    public String getTemp(Sensor_Type sensor) {
+        for (Read_Items.Pair pair : readItems.getSensorTemperaturePairs()) {
+            if (pair.getSensor().equals(sensor)) {
+                return pair.getTemperature().getTemperature();
+            }
+        }
+        return null;
+    }
+}
