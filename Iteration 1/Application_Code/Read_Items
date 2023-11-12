@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Read_Items {
+    private List<Pair> sensorTemperaturePairs;
+
+    public Read_Items() {
+        this.sensorTemperaturePairs = new ArrayList<>();
+    }
+
+    public void addPair(Sensor_Type sensor, Temperature_Type temperature) {
+        sensorTemperaturePairs.add(new Pair(sensor, temperature));
+    }
+
+    public List<Pair> getSensorTemperaturePairs() {
+        return sensorTemperaturePairs;
+    }
+
+    // Inner class to represent a pair of Sensor_Type and Temperature_Type
+    public static class Pair {
+        private Sensor_Type sensor;
+        private Temperature_Type temperature;
+
+        public Pair(Sensor_Type sensor, Temperature_Type temperature) {
+            this.sensor = sensor;
+            this.temperature = temperature;
+        }
+
+        public Sensor_Type getSensor() {
+            return sensor;
+        }
+
+        public Temperature_Type getTemperature() {
+            return temperature;
+        }
+    }
+}
