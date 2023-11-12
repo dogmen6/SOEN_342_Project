@@ -1,0 +1,17 @@
+public class Temperature_Type {
+
+	    private String temperature;
+
+	    public Temperature_Type(String temperature) {
+	        this.temperature = temperature;
+	    }
+
+	    public String getTemperature() {
+	        return temperature;
+	    }
+
+	    public void addTemperature(Temperature_List temperatureList) {
+	        temperatureList.addTemperature(this.temperature);
+	    }
+
+}
