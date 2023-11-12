@@ -1,0 +1,23 @@
+public class Map {
+    private Map_Items mapItems;
+
+    // Constructor initializes the class with a new instance of Map_Items.
+    public Map() {
+        this.mapItems = new Map_Items();
+    }
+
+    // Adds a new pair of Sensor_Type and Location_Type to the Map_Items instance.
+    public void add(Sensor_Type sensor, Location_Type location) {
+        mapItems.addPair(sensor, location);
+    }
+
+    // Retrieves the location associated with a specific sensor from Map_Items.
+    public String getTemp(Sensor_Type sensor) {
+        for (Map_Items.Pair pair : mapItems.getSensorLocationPairs()) {
+            if (pair.getSensor().equals(sensor)) {
+                return pair.getLocation().getLocation();
+            }
+        }
+        return null;
+    }
+}

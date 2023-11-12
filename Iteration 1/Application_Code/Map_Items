@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Map_Items {
+    private List<Pair> sensorLocationPairs;
+
+    // Constructor initializes the class with an empty list of sensor-location pairs.
+    public Map_Items() {
+        this.sensorLocationPairs = new ArrayList<>();
+    }
+
+    // Adds a new pair of Sensor_Type and Location_Type to the list.
+    public void addPair(Sensor_Type sensor, Location_Type location) {
+        sensorLocationPairs.add(new Pair(sensor, location));
+    }
+
+    // Returns the list of sensor-location pairs.
+    public List<Pair> getSensorLocationPairs() {
+        return sensorLocationPairs;
+    }
+
+    // Inner class to represent a pair of Sensor_Type and Location_Type
+    public static class Pair {
+        private Sensor_Type sensor;
+        private Location_Type location;
+
+        // Constructor for creating a pair with specified sensor and location.
+        public Pair(Sensor_Type sensor, Location_Type location) {
+            this.sensor = sensor;
+            this.location = location;
+        }
+
+        // Getter method for retrieving the sensor of the pair.
+        public Sensor_Type getSensor() {
+            return sensor;
+        }
+
+        // Getter method for retrieving the location of the pair.
+        public Location_Type getTemperature() {
+            return location;
+        }
+    }
+}
