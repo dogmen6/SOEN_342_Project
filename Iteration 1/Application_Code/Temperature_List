@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Temperature_List {
+
+	    private List<Temperature_Type> temperatureList;
+
+	    public Temperature_List() {
+	        this.setTemperatureList(new ArrayList<>());
+	    }
+
+		public List<Temperature_Type> getTemperatureList() {
+			return temperatureList;
+		}
+
+		public void setTemperatureList(List<Temperature_Type> temperatureList) {
+			this.temperatureList = temperatureList;
+		}
+		
+		 public void addTemperature(String temperature) {
+		        Temperature_Type temperatureType = new Temperature_Type(temperature);
+		        temperatureList.add(temperatureType);
+		    }
+	
+}
