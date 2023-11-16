@@ -1,43 +1,44 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class Map_Items {
-    private List<Pair> sensorLocationPairs;
 
-    // Constructor initializes the class with an empty list of sensor-location pairs.
-    public Map_Items() {
-        this.sensorLocationPairs = new ArrayList<>();
-    }
+	private Sensor_Type sensor_type;
+	private Location_Type location_type;
 
-    // Adds a new pair of Sensor_Type and Location_Type to the list.
-    public void addPair(Sensor_Type sensor, Location_Type location) {
-        sensorLocationPairs.add(new Pair(sensor, location));
-    }
+	// default constructor
+	public Map_Items() {
+		this.sensor_type = null;
+		this.location_type = null;
+	}
 
-    // Returns the list of sensor-location pairs.
-    public List<Pair> getSensorLocationPairs() {
-        return sensorLocationPairs;
-    }
+	// parameterized constructor 
+	public Map_Items(Sensor_Type sensor_type, Location_Type location_type) {
+		this.sensor_type = sensor_type;
+		this.location_type = location_type;
+	}
 
-    // Inner class to represent a pair of Sensor_Type and Location_Type
-    public static class Pair {
-        private Sensor_Type sensor;
-        private Location_Type location;
+	// getter for Sensor_Type
+	public Sensor_Type getSensorType() {
+		return this.sensor_type;
+	}
 
-        // Constructor for creating a pair with specified sensor and location.
-        public Pair(Sensor_Type sensor, Location_Type location) {
-            this.sensor = sensor;
-            this.location = location;
-        }
+	// getter for Location_Type
+	public Location_Type getLocationType() {
+		return this.location_type;
+	}
 
-        // Getter method for retrieving the sensor of the pair.
-        public Sensor_Type getSensor() {
-            return sensor;
-        }
+	// setter for Sensor_Type
+	public void setSensorType(Sensor_Type sensor_type) {
+		this.sensor_type = sensor_type;
+	}
 
-        // Getter method for retrieving the location of the pair.
-        public Location_Type getTemperature() {
-            return location;
-        }
-    }
+	// setter for Location_Type
+	public void setLocationType(Location_Type location_type) {
+		this.location_type = location_type;
+	}
+
+	// overrides the toString to return the Sensor_Type and Location_Type
+	public String toString() {
+		return this.getSensorType() + ", " + this.getLocationType();
+	}
+
 }

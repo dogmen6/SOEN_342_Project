@@ -1,24 +1,34 @@
 public class Location_Type {
 
-    private String location;
+	private String location;
 
-    // Constructor initializes the Location_Type with a specified location.
-    public Location_Type(String location) {
-        this.location = location;
-    }
+	// default constructor
+	public Location_Type() {
+		this.location = null;
+	}
 
-    // Getter method for retrieving the location.
-    public String getLocation() {
-        return location;
-    }
+	// parameterized constructor
+	public Location_Type(String location) {
+		this.location = location;
+	}
 
-    // Adds the location to a Location_List instance.
-    public void addLocation(Location_List_List locationList) {
-        locationList.addLocation(this.location);
-    }
+	// Getter method for retrieving the location.
+	public String getLocation() {
+		return this.location;
+	}
 
-    // Overrides the toString method to return the location.
-    public String toString() {
-        return this.getLocation();
-    }
+	// Setter method for retrieving the location.
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	// Overrides the toString method to return the location.
+	public String toString() {
+		return this.getLocation();
+	}
+
+	public boolean equals(Location_Type location) {
+		return this.getLocation().equalsIgnoreCase(location.getLocation());
+	}
+
 }
