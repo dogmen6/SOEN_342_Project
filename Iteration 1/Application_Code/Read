@@ -1,20 +1,71 @@
+import java.util.*; //import ArrayList
+
 public class Read {
-    private Read_Items readItems;
 
-    public Read() {
-        this.readItems = new Read_Items();
-    }
+	// create an ArrayList of type Read_Items (pair of Sensor_Type and
+	// Location_Type)
+	private ArrayList<Read_Items> read_list;
 
-    public void add(Sensor_Type sensor, Temperature_Type temperature) {
-        readItems.addPair(sensor, temperature);
-    }
+	// default constructor
+	public Read() {
+		this.read_list = new ArrayList<Read_Items>();
+	}
 
-    public String getTemp(Sensor_Type sensor) {
-        for (Read_Items.Pair pair : readItems.getSensorTemperaturePairs()) {
-            if (pair.getSensor().equals(sensor)) {
-                return pair.getTemperature().getTemperature();
-            }
-        }
-        return null;
-    }
+	// parameterized constructor
+	public Read(ArrayList<Read_Items> read_list) {
+		this.read_list = read_list;
+	}
+
+	// returns the ArrayList of Read_Items elements
+	public ArrayList<Read_Items> getRead_List() {
+		return this.read_list;
+	}
+
+	// initializes the ArrayList of type Read_Items to a new ArrayList
+	// of type Read_Items
+	public void setRead_List(ArrayList<Read_Items> read_list) {
+		this.read_list = read_list;
+	}
+
+	// creates a new Read_Item object
+	public Read_Items createReadItem(Sensor_Type sensor, Temperature_Type temperature) {
+		Read_Items newRItem = new Read_Items(sensor, temperature);
+		return newRItem;
+	}
+
+	// adds a new Read_Items in the ArrayList of Read_Items
+	public void addRead_Items(Read_Items read_items) {
+		this.read_list.add(read_items);
+	}
+
+	// get Temperature_Type with Sensor_Type as a parameter
+	public Temperature_Type getTempTypeFromList(Sensor_Type sensor) {
+		for (int i = 0; i < read_list.size(); i++) {
+			if (this.read_list.get(i).getSensorType().equals(sensor)) {
+				return this.read_list.get(i).getTemperatureType();
+			}
+		}
+		return null;
+	}
+
+	// get Sensor_Type with Temperature_Type as a parameter
+	public Sensor_Type getSensorTypeFromList(Temperature_Type temperature) {
+		for (int i = 0; i < read_list.size(); i++) {
+			if (this.read_list.get(i).getTemperatureType().getTemperature()
+					.equalsIgnoreCase(temperature.getTemperature())) {
+				return read_list.get(i).getSensorType();
+			}
+		}
+		return null;
+	}
+
+	// returns a Read_Times element of the ArrayList
+	public Read_Items getRead_Items(int x) {
+		return this.read_list.get(x);
+	}
+	
+	// override the toString
+	public String toString() {
+		return this.getRead_List() + "";
+	}
 }
