@@ -1,37 +1,43 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class Read_Items {
-    private List<Pair> sensorTemperaturePairs;
 
-    public Read_Items() {
-        this.sensorTemperaturePairs = new ArrayList<>();
-    }
+	private Sensor_Type sensor;
+	private Temperature_Type temperature;
 
-    public void addPair(Sensor_Type sensor, Temperature_Type temperature) {
-        sensorTemperaturePairs.add(new Pair(sensor, temperature));
-    }
+	// default constructor
+	public Read_Items() {
+		this.sensor = null;
+		this.temperature = null;
+	}
 
-    public List<Pair> getSensorTemperaturePairs() {
-        return sensorTemperaturePairs;
-    }
+	// parameterized constructor
+	public Read_Items(Sensor_Type sensor, Temperature_Type temperature) {
+		this.sensor = sensor;
+		this.temperature = temperature;
+	}
 
-    // Inner class to represent a pair of Sensor_Type and Temperature_Type
-    public static class Pair {
-        private Sensor_Type sensor;
-        private Temperature_Type temperature;
+	// getter for Sensor_Type
+	public Sensor_Type getSensorType() {
+		return this.sensor;
+	}
 
-        public Pair(Sensor_Type sensor, Temperature_Type temperature) {
-            this.sensor = sensor;
-            this.temperature = temperature;
-        }
+	// getter for Temperature_Type
+	public Temperature_Type getTemperatureType() {
+		return this.temperature;
+	}
 
-        public Sensor_Type getSensor() {
-            return sensor;
-        }
+	// setter for Sensor_Type
+	public void setSensorType(Sensor_Type sensor) {
+		this.sensor = sensor;
+	}
 
-        public Temperature_Type getTemperature() {
-            return temperature;
-        }
-    }
+	// setter for Temperature_Type
+	public void setTemperatureType(Temperature_Type temperature) {
+		this.temperature = temperature;
+	}
+
+	// overrides the toString to return the Sensor_Type and Temperature_Type
+	public String toString() {
+		return this.getSensorType() + ", " + this.getTemperatureType();
+	}
 }
