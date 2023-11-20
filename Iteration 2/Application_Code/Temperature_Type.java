@@ -1,0 +1,30 @@
+public class Temperature_Type {
+
+	private String temperature;
+
+	// default constructor
+	public Temperature_Type() {
+		this.temperature = null;
+	}
+
+	// parameterized constructor
+	public Temperature_Type(String temperature) {
+		this.temperature = temperature;
+	}
+
+	// setter for temperature
+	public void setTemperature(String temperature) {
+		this.temperature = temperature;
+	}
+
+	// getter for temperature
+	public String getTemperature() {
+		return temperature;
+	}
+
+	// overridden toString
+	public String toString() {
+		return this.getTemperature();
+	}
+
+}
