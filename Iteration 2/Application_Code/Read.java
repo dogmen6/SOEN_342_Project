@@ -68,5 +68,9 @@ public class Read {
 	public String toString() {
 		return this.getRead_List() + "";
 	}
+
+	public int readSize() {
+		return this.read_list.size();
+	}
 }
 
