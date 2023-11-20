@@ -86,8 +86,4 @@ public class Map {
 	public String toString() {
 		return this.getMap_List() + "";
 	}
-	
-	public int mapSize() {
-		return this.map_list.size();
-	}
 }

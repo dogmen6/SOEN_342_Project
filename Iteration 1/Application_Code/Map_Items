@@ -10,12 +10,10 @@ public class Map_Items {
 		this.location_type = null;
 	}
 
-	// parameterized constructor
+	// parameterized constructor 
 	public Map_Items(Sensor_Type sensor_type, Location_Type location_type) {
-		if (sensor_type.getDeployed() == true) {
-			this.sensor_type = sensor_type;
-			this.location_type = location_type;
-		}
+		this.sensor_type = sensor_type;
+		this.location_type = location_type;
 	}
 
 	// getter for Sensor_Type
